@@ -25,7 +25,7 @@ export default class App extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <div className="alert alert-success" id="notice">Welcome Ajax - 03/Jquery -  2016/11/02 </div>
+            <div className="alert alert-success" id="notice">Welcome React II - 2018/02/09 </div>
           </div>
         </div>
         <div className="row">
