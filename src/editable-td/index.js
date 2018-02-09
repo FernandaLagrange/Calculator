@@ -5,7 +5,7 @@ export default class EditableInput extends React.Component {
     super(props);
     this.state = {
       editing: false,
-      value: props.value
+      value: props.user[props.attribute]
     }
   }
 
@@ -17,7 +17,7 @@ export default class EditableInput extends React.Component {
   changeInput = (event) => {
     this.setState({
       value: event.target.value
-    })
+    });
   }
 
   update = () => {

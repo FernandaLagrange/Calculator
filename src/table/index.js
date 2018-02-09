@@ -7,9 +7,9 @@ export default class Table extends React.Component {
     const { updateUser } = this.props;
     const users = this.props.users.map((user) => (
       <tr key={user.id}>
-        <EditableTd updateUser={updateUser} user={user} attribute='Name' value={user.Name} />
-        <EditableTd updateUser={updateUser} user={user} attribute='Lastname' value={user.Lastname} />
-        <EditableTd updateUser={updateUser} user={user} attribute='DNI' value={user.DNI} />
+        <EditableTd updateUser={updateUser} user={user} attribute='Name'/>
+        <EditableTd updateUser={updateUser} user={user} attribute='Lastname'/>
+        <EditableTd updateUser={updateUser} user={user} attribute='DNI' />
         <td>
           <button className="btn btn-danger" onClick={() => { this.props.delete(user.id) }}> Delete</button>
         </td>
