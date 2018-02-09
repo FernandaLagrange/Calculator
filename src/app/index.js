@@ -33,17 +33,28 @@ export default class App extends React.Component {
 
   saveUser = (event) => {
     event.preventDefault();
-    const form = { ...this.state.form }
+    const form = { ...this.state.form, id: Date.now() }
     const users = [...this.state.users, form]
-    console.log(form, users);
     this.setState({
       users,
       form: this.clearForm()
     })
   }
 
-  updateUser() {
+  updateUser = (user) => {
+    const users = this.state.users.map(currentUser => {
+      if (currentUser.id == user.id) {
+        return user;
+      }
+      return currentUser;
+    });
 
+    this.setState({users})
+  }
+
+  deleteUser = (id) => {
+    const users = this.state.users.filter(user => user.id != id);
+    this.setState({ users });
   }
 
   render() {
@@ -72,7 +83,7 @@ export default class App extends React.Component {
             </div>
             <div className="row">
               <div className="col">
-                <Table />
+                <Table delete={this.deleteUser} users={this.state.users} />
               </div>
             </div>
           </div>
