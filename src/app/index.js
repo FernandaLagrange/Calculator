@@ -5,6 +5,21 @@ import './style.scss';
 
 export default class App extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      users: [],
+      search: '',
+      form: {
+        name: '',
+        lastName: '',
+        dni: ''
+      }
+    }
+  }
+
+
+
   render() {
     return (
       <div className="container">
@@ -15,7 +30,7 @@ export default class App extends React.Component {
         </div>
         <div className="row">
           <div className="col">
-            <Form/>
+            <Form />
           </div>
           <div className="col">
             <h1 className="text-center">Listing Users</h1>
@@ -31,7 +46,7 @@ export default class App extends React.Component {
             </div>
             <div className="row">
               <div className="col">
-                <Table/>
+                <Table />
               </div>
             </div>
           </div>
