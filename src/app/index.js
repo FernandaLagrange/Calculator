@@ -10,11 +10,7 @@ export default class App extends React.Component {
     this.state = {
       users: [],
       search: '',
-      form: {
-        Name: '',
-        Lastname: '',
-        DNI: ''
-      }
+      form: this.clearForm()
     }
   }
 
@@ -83,7 +79,7 @@ export default class App extends React.Component {
             </div>
             <div className="row">
               <div className="col">
-                <Table delete={this.deleteUser} users={this.state.users} />
+                <Table updateUser={this.updateUser} delete={this.deleteUser} users={this.state.users} />
               </div>
             </div>
           </div>

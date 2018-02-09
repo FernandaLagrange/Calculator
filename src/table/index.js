@@ -1,28 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import EditableTd from '../editable-td';
 
 export default class Table extends React.Component {
-  
-  // saveEdit = () => {
 
-  // }
-  
-  // beginEdit = ({target}, user) => {
-  //   ReactDOM.render(<input value={target.value} onBlur={() => {this.saveEdit(user)}} type="text"/>,target);
-  // }
-  
   render() {
+    const { updateUser } = this.props;
     const users = this.props.users.map((user) => (
       <tr key={user.id}>
-        <td>
-          {user.Name}
-        </td>
-        <td>
-          {user.Lastname}
-        </td>
-        <td>
-          {user.DNI}
-        </td>
+        <EditableTd updateUser={updateUser} user={user} attribute='Name' value={user.Name} />
+        <EditableTd updateUser={updateUser} user={user} attribute='Lastname' value={user.Lastname} />
+        <EditableTd updateUser={updateUser} user={user} attribute='DNI' value={user.DNI} />
         <td>
           <button className="btn btn-danger" onClick={() => { this.props.delete(user.id) }}> Delete</button>
         </td>
