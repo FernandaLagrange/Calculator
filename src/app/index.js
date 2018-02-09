@@ -11,14 +11,40 @@ export default class App extends React.Component {
       users: [],
       search: '',
       form: {
-        name: '',
-        lastName: '',
-        dni: ''
+        Name: '',
+        Lastname: '',
+        DNI: ''
       }
     }
   }
 
+  inputChange = (input) => {
+    const form = { ...this.state.form, ...input };
+    this.setState({ form });
+  }
 
+  clearForm() {
+    return {
+      Name: '',
+      Lastname: '',
+      DNI: ''
+    }
+  }
+
+  saveUser = (event) => {
+    event.preventDefault();
+    const form = { ...this.state.form }
+    const users = [...this.state.users, form]
+    console.log(form, users);
+    this.setState({
+      users,
+      form: this.clearForm()
+    })
+  }
+
+  updateUser() {
+
+  }
 
   render() {
     return (
@@ -30,7 +56,7 @@ export default class App extends React.Component {
         </div>
         <div className="row">
           <div className="col">
-            <Form />
+            <Form saveUser={this.saveUser} inputChange={this.inputChange} {...this.state.form} />
           </div>
           <div className="col">
             <h1 className="text-center">Listing Users</h1>
